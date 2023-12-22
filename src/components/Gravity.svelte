@@ -29,7 +29,7 @@
                 width,
                 height,
                 background:
-                    "linear-gradient(180deg, #efff82 0%, #efff82 55%, #cfcfcf 85%, #cfcfcf 100%)", // Set background to transparent
+                    "linear-gradient(180deg, #efff82 0%, #efff82 55%, #cfcfcf 85%, #cfcfcf 100%)",
                 wireframes: false,
             },
         });
@@ -39,7 +39,7 @@
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        const delay = 100; // seconds delay
+        const delay = 100;
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
@@ -101,7 +101,7 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        const minDistance = 252; // Minimum distance between shapes
+        const minDistance = 252;
 
         const randomShapes = generateShapes([], width / 35);
 
@@ -142,7 +142,6 @@
                     },
                 );
 
-                // Create the circle body with the radial gradient fill
                 const circle1 = Matter.Bodies.circle(
                     newShape.position.x,
                     newShape.position.y,
@@ -150,9 +149,9 @@
                     {
                         isStatic: true,
                         render: {
-                            // fillStyle: "white", 
+                            // fillStyle: "white",
                             sprite: {
-                                texture: "gradient.png", // Use an image if possible
+                                texture: "gradient.png",
                             },
                             opacity: 0.3,
                         },
@@ -166,7 +165,6 @@
                     remaining - 1,
                 );
             } else {
-                // If the new shape is too close, try generating another one
                 return generateShapes(shapesArray, remaining);
             }
         }
@@ -177,14 +175,13 @@
                     Matter.Vector.sub(newShape.position, shape.position),
                 );
                 if (distance < minDistance) {
-                    return true; // Too close
+                    return true;
                 }
             }
-            return false; // Not too close
+            return false;
         }
         Matter.World.add(world, [...walls, ...randomShapes]);
 
-        // add mouse control
         const mouse = Matter.Mouse.create(render.canvas);
         const mouseConstraint = Matter.MouseConstraint.create(engine, {
             mouse: mouse,
@@ -198,13 +195,10 @@
 
         Matter.World.add(world, mouseConstraint);
 
-        // keep the mouse in sync with rendering
         render.mouse = mouse;
 
-        // fit the render viewport to the scene
         Matter.Render.lookAt(render, Matter.Composite.allBodies(world));
 
-        // wrapping using matter-wrap plugin
         for (let i = 0; i < world.bodies.length; i += 1) {
             world.bodies[i].plugin.wrap = {
                 min: { x: render.bounds.min.x, y: render.bounds.min.y },
@@ -212,7 +206,6 @@
             };
         }
 
-        // context for cleanup
         const context = {
             engine: engine,
             runner: runner,
@@ -224,7 +217,7 @@
             },
         };
 
-        // Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
+        Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
 
         return context;
     }
