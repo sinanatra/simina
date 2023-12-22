@@ -30,6 +30,7 @@
     article {
         border-left: 5px solid;
         width: 20vw;
+        min-width: 160px;
         height: 100vh;
         overflow: scroll;
         display: flex;
