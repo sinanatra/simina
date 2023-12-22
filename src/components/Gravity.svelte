@@ -3,41 +3,11 @@
     import Matter from "matter-js";
     import { selectedBall } from "@stores";
 
+    export let data;
     let width;
     let height;
 
-    const balls = [
-        {
-            color: "blue",
-            title: "title1",
-            descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-            media: "https://media.licdn.com/dms/image/C4E03AQFGdKHgR_4wKQ/profile-displayphoto-shrink_800_800/0/1663252181387?e=2147483647&v=beta&t=FsOUqpTDpG4KskpJkHC3-m64BjwVWEAijRpMuGuYYcA",
-        },
-        {
-            color: "blue",
-            title: "title2",
-            descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-            media: "https://i.ytimg.com/vi/SrfpBwVyFjs/maxresdefault.jpg",
-        },
-        {
-            color: "blue",
-            title: "title3",
-            descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-            media: "https://i.ytimg.com/vi/SrfpBwVyFjs/maxresdefault.jpg",
-        },
-        {
-            color: "blue",
-            title: "title4",
-            descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-            media: "https://i.ytimg.com/vi/SrfpBwVyFjs/maxresdefault.jpg",
-        },
-        {
-            color: "blue",
-            title: "title5",
-            descr: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-            media: "https://i.ytimg.com/vi/SrfpBwVyFjs/maxresdefault.jpg",
-        },
-    ];
+    const balls = data;
 
     onMount(() => {
         createAvalanche();
@@ -51,7 +21,6 @@
         const world = engine.world;
         const canvas = document.getElementById("matter-canvas");
 
-        // create renderer
         const render = Matter.Render.create({
             element: document.getElementById("matter-container"),
             engine: engine,
@@ -67,12 +36,10 @@
 
         Matter.Render.run(render);
 
-        // create runner
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        // add bodies with colors
-        const delay = 1000; // 1 second delay
+        const delay = 3000; // seconds delay
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
@@ -81,16 +48,15 @@
                     -height,
                     50,
                     {
-                        friction: 0.0000001,
-                        restitution: .1,
-                        density: 10,
+                        friction: 0.01,
+                        restitution: 0.7,
+                        density: 0.5,
                         render: {
-                            fillStyle: balls[i].color,
+                            fillStyle: "blue",
                         },
                         data: balls[i],
                     },
                 );
-
                 ballData.push(ball);
                 Matter.World.add(world, ball);
             }, i * delay);
@@ -104,7 +70,7 @@
 
             if (underMouse.length && underMouse[0]?.data) {
                 // let fill = underMouse[0].render.fillStyle;
-                underMouse[0].render.fillStyle = "red";
+                underMouse[0].render.fillStyle = "yellow";
                 $selectedBall = underMouse[0].data;
             }
 
@@ -135,9 +101,9 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        const minDistance = 200; // Minimum distance between shapes
+        const minDistance = 252; // Minimum distance between shapes
 
-        const randomShapes = generateShapes([], 50);
+        const randomShapes = generateShapes([], width / 35);
 
         function generateShapes(shapesArray, remaining) {
             if (remaining <= 0) {
@@ -156,8 +122,9 @@
             );
 
             if (!isTooClose(newShape, shapesArray, minDistance)) {
-                const rotationDirection = remaining % 2 === 1 ? -1 : 1;
+                const rotationDirection = Math.random() < 0.5 ? -1 : 1;
 
+                console.log(rotationDirection);
                 Matter.Events.on(engine, "beforeUpdate", function (event) {
                     Matter.Body.rotate(
                         newShape,
@@ -172,7 +139,7 @@
                     {
                         isStatic: true,
                         render: {
-                            fillStyle: "black",
+                            fillStyle: "blue",
                         },
                     },
                 );
@@ -185,13 +152,13 @@
                     {
                         isStatic: true,
                         render: {
-                            fillStyle: "#cfcfcf", // Use the radial gradient as the fill style
-                            opacity: 0.6,
+                            fillStyle: "white", // Use the radial gradient as the fill style
+                            // opacity: 0.3,
                         },
                     },
                 );
 
-                shapesArray.push(circle1, circle, newShape);
+                shapesArray.push(circle1, newShape, circle);
 
                 return generateShapes(
                     [...shapesArray, newShape],
@@ -221,7 +188,7 @@
         const mouseConstraint = Matter.MouseConstraint.create(engine, {
             mouse: mouse,
             constraint: {
-                stiffness: 2,
+                stiffness: .2,
                 render: {
                     visible: false,
                 },

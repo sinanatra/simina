@@ -1,10 +1,11 @@
 <script>
     import Gravity from "@components/Gravity.svelte";
     import Detail from "@components/Detail.svelte";
+    export let data;
 </script>
 
 <article>
-    <Gravity />
+    <Gravity data={data.posts} />
     <Detail />
 </article>
 
@@ -22,6 +23,12 @@
     }
 
     :global(body) {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    :global(h1, h2, h3, h4) {
         margin: 0;
         padding: 0;
     }

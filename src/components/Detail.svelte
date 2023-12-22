@@ -3,22 +3,37 @@
 </script>
 
 <article>
-    <h1>
-        {$selectedBall?.title}
-    </h1>
+    {#if $selectedBall}
+        <h1>
+            {$selectedBall?.meta?.title}
+        </h1>
 
-    <div>
-        {#if $selectedBall?.media}
-            <img src={$selectedBall?.media} alt=" {$selectedBall?.title}" />
-        {/if}
-    </div>
-    <div>{$selectedBall?.descr}</div>
+        <div>
+            {#if $selectedBall?.meta?.media}
+                <img
+                    src={$selectedBall?.meta?.media}
+                    alt=" {$selectedBall?.meta?.title}"
+                />
+            {/if}
+        </div>
+        <div>{@html $selectedBall?.text}</div>
+    {:else}
+        <h1>Simina German</h1>
+        <div>contact</div>
+    {/if}
 </article>
 
 <style>
     article {
-        background: white;
-        width: 230px;
+        background: linear-gradient(
+            180deg,
+            #cfcfcf 0%,
+            #cfcfcf 55%,
+            #efff82 85%,
+            #efff82 100%
+        );
+        border-left: 5px solid;
+        width: 20vw;
         height: calc(100vh);
         /* position: absolute;
         right: 30px;
