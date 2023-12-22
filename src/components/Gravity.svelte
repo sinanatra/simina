@@ -39,7 +39,7 @@
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        const delay = 3000; // seconds delay
+        const delay = 100; // seconds delay
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
@@ -48,9 +48,9 @@
                     -height,
                     50,
                     {
-                        friction: 0.01,
-                        restitution: 0.7,
-                        density: 0.5,
+                        friction: 0.9,
+                        restitution: 0.5,
+                        density: 0.6,
                         render: {
                             fillStyle: "blue",
                         },
@@ -89,7 +89,7 @@
                 isStatic: true,
                 render: { fillStyle: "none" },
             }),
-            Matter.Bodies.rectangle(0, height, width * 2, 20, {
+            Matter.Bodies.rectangle(0, height, width * 2.1, 5, {
                 isStatic: true,
                 render: { fillStyle: "none" },
             }),
@@ -111,8 +111,8 @@
             }
 
             const newShape = Matter.Bodies.rectangle(
-                getRandomInt(-width, width),
-                getRandomInt(-height, height - 250),
+                getRandomInt(-width, width - 100),
+                getRandomInt(-height, height - 80),
                 250,
                 10,
                 {
@@ -123,8 +123,6 @@
 
             if (!isTooClose(newShape, shapesArray, minDistance)) {
                 const rotationDirection = Math.random() < 0.5 ? -1 : 1;
-
-                console.log(rotationDirection);
                 Matter.Events.on(engine, "beforeUpdate", function (event) {
                     Matter.Body.rotate(
                         newShape,
@@ -148,12 +146,15 @@
                 const circle1 = Matter.Bodies.circle(
                     newShape.position.x,
                     newShape.position.y,
-                    50,
+                    15,
                     {
                         isStatic: true,
                         render: {
-                            fillStyle: "white", // Use the radial gradient as the fill style
-                            // opacity: 0.3,
+                            // fillStyle: "white", 
+                            sprite: {
+                                texture: "gradient.png", // Use an image if possible
+                            },
+                            opacity: 0.3,
                         },
                     },
                 );
@@ -188,7 +189,7 @@
         const mouseConstraint = Matter.MouseConstraint.create(engine, {
             mouse: mouse,
             constraint: {
-                stiffness: .2,
+                stiffness: 0.2,
                 render: {
                     visible: false,
                 },
@@ -240,7 +241,7 @@
 <style>
     article {
         width: 100vw;
-        height: 99vh;
+        height: 100vh;
         margin: 0;
         overflow: hidden; /* Prevent scrollbars */
     }

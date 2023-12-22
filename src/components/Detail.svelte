@@ -3,28 +3,42 @@
 </script>
 
 <article>
-    {#if $selectedBall}
-        <h1>
-            {$selectedBall?.meta?.title}
-        </h1>
-
-        <div>
-            {#if $selectedBall?.meta?.media}
-                <img
-                    src={$selectedBall?.meta?.media}
-                    alt=" {$selectedBall?.meta?.title}"
-                />
-            {/if}
-        </div>
-        <div>{@html $selectedBall?.text}</div>
-    {:else}
+    <div>
         <h1>Simina German</h1>
         <div>contact</div>
+    </div>
+    {#if $selectedBall}
+        <div>
+            <h1>
+                {$selectedBall?.meta?.title}
+            </h1>
+
+            <div>
+                {#if $selectedBall?.meta?.media}
+                    <img
+                        src={$selectedBall?.meta?.media}
+                        alt=" {$selectedBall?.meta?.title}"
+                    />
+                {/if}
+            </div>
+            <div>{@html $selectedBall?.text}</div>
+        </div>
     {/if}
 </article>
 
 <style>
     article {
+        border-left: 5px solid;
+        width: 20vw;
+        height: 100vh;
+        overflow: scroll;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+    article > div {
+        min-width: 100%;
+        border-top: 5px solid;
         background: linear-gradient(
             180deg,
             #cfcfcf 0%,
@@ -32,14 +46,10 @@
             #efff82 85%,
             #efff82 100%
         );
-        border-left: 5px solid;
-        width: 20vw;
-        height: calc(100vh);
-        /* position: absolute;
-        right: 30px;
-        top: 100px; */
-        padding: 10px;
-        overflow: scroll;
+    }
+
+    article div > * {
+        padding: 5px 10px;
     }
 
     img {
