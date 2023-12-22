@@ -217,7 +217,7 @@
             },
         };
 
-        Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
+        // Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
 
         return context;
     }
