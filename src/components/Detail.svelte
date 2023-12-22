@@ -35,6 +35,7 @@
         display: flex;
         align-items: flex-end;
         flex-wrap: wrap;
+        flex-direction: column-reverse;
     }
     article > div {
         min-width: 100%;
@@ -46,10 +47,12 @@
             #efff82 85%,
             #efff82 100%
         );
+        background: #efff82;
     }
 
-    article div > * {
-        padding: 5px 10px;
+    article div > div,
+    article div > h1 {
+        padding: 10px;
     }
 
     img {
