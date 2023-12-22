@@ -3,10 +3,6 @@
 </script>
 
 <article>
-    <div>
-        <h1>Simina German</h1>
-        <div>contact</div>
-    </div>
     {#if $selectedBall}
         <div>
             <h1>
@@ -24,23 +20,22 @@
             <div>{@html $selectedBall?.text}</div>
         </div>
     {/if}
+    <div>
+        <h1>Simina German</h1>
+        <div>contact</div>
+    </div>
 </article>
 
 <style>
     article {
         border-left: 5px solid;
-        width: 20vw;
+        width: 30vw;
         min-width: 160px;
         height: 100vh;
         overflow: scroll;
         display: flex;
         align-items: flex-end;
         flex-wrap: wrap;
-        flex-direction: column-reverse;
-    }
-    article > div {
-        min-width: 100%;
-        border-top: 5px solid;
         background: linear-gradient(
             180deg,
             #cfcfcf 0%,
@@ -48,7 +43,10 @@
             #efff82 85%,
             #efff82 100%
         );
-        background: #efff82;
+    }
+    article > div {
+        min-width: 100%;
+        border-top: 5px solid;
     }
 
     article div > div,

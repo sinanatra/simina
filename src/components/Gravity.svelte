@@ -39,7 +39,7 @@
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        const delay = 100;
+        const delay = 1000;
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
