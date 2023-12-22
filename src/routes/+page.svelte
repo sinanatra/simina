@@ -10,8 +10,19 @@
 
 <style>
     article {
-        background: linear-gradient(180deg, #efff82 0%, #efff82 55%, #cfcfcf 85%, #cfcfcf 100%);
+        background: linear-gradient(
+            180deg,
+            #efff82 0%,
+            #efff82 55%,
+            #cfcfcf 85%,
+            #cfcfcf 100%
+        );
         display: flex;
         align-items: flex-end;
+    }
+
+    :global(body) {
+        margin: 0;
+        padding: 0;
     }
 </style>

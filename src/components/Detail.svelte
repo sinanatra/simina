@@ -18,8 +18,8 @@
 <style>
     article {
         background: white;
-        width: 330px;
-        height: calc(100vh - 100px);
+        width: 230px;
+        height: calc(100vh);
         /* position: absolute;
         right: 30px;
         top: 100px; */
