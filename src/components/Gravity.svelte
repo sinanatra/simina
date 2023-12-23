@@ -7,13 +7,20 @@
     let width;
     let height;
 
+    $: {
+        width;
+        try {
+            createGravity();
+        } catch (error) {}
+    }
+
     const balls = data;
 
     onMount(() => {
-        createAvalanche();
+        createGravity();
     });
 
-    function createAvalanche() {
+    function createGravity() {
         Matter.use("matter-wrap");
 
         // create engine
@@ -61,23 +68,6 @@
                 Matter.World.add(world, ball);
             }, i * delay);
         }
-
-        Matter.Events.on(runner, "tick", (event) => {
-            const underMouse = Matter.Query.point(
-                ballData,
-                mouseConstraint.mouse.position,
-            );
-
-            if (underMouse.length && underMouse[0]?.data) {
-                // let fill = underMouse[0].render.fillStyle;
-                underMouse[0].render.fillStyle = "yellow";
-                $selectedBall = underMouse[0].data;
-            }
-
-            if (mouseConstraint.body && underMouse[0]?.data) {
-                $selectedBall = underMouse[0].data;
-            }
-        });
 
         const walls = [
             Matter.Bodies.rectangle(-width, 0, 20, height * 2, {
@@ -217,8 +207,25 @@
             },
         };
 
-        // Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
+        Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
 
+        Matter.Events.on(runner, "tick", (event) => {
+            const underMouse = Matter.Query.point(
+                ballData,
+                mouseConstraint.mouse.position,
+            );
+
+            if (underMouse.length && underMouse[0]?.data) {
+                // let fill = underMouse[0].render.fillStyle;
+                underMouse[0].render.fillStyle = "yellow";
+                $selectedBall = underMouse[0].data;
+            }
+
+            if (mouseConstraint.body && underMouse[0]?.data) {
+                $selectedBall = underMouse[0].data;
+            }
+        });
+        
         return context;
     }
 </script>
