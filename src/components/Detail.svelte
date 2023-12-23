@@ -45,7 +45,6 @@
     }
     article > div {
         min-width: 100%;
-        border-top: 5px solid;
         position: sticky;
         bottom: 0;
         background: linear-gradient(
@@ -55,6 +54,10 @@
             #efff82 85%,
             #efff82 100%
         );
+    }
+
+    article > div:not(:first-of-type) {
+        border-top: 5px solid;
     }
 
     article div > div,
