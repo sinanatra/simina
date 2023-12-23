@@ -17,6 +17,10 @@ const config = {
 		paths: {
 			base: dev ? '' : process.env.BASE_PATH,
 		},
+		prerender: {
+			crawl: true,
+			entries: ["/", "/archive",],
+		},
 		alias: {
 			'@components': 'src/components',
 			'@stores': 'src/stores.js',
