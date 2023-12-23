@@ -1,5 +1,6 @@
 <script>
     import { selectedBall } from "@stores";
+    export let info;
 </script>
 
 <article>
@@ -22,7 +23,7 @@
     {/if}
     <div>
         <h1>Simina German</h1>
-        <div>contact</div>
+        <div>{@html info.text}</div>
     </div>
 </article>
 
@@ -44,9 +45,11 @@
         );
     }
     article > div {
-        min-width: 100%;
+        width: 100%;
         position: sticky;
         bottom: 0;
+        padding: 8px;
+
         background: linear-gradient(
             180deg,
             #cfcfcf 0%,
@@ -60,9 +63,8 @@
         border-top: 5px solid;
     }
 
-    article div > div,
     article div > h1 {
-        padding: 10px;
+        padding-bottom: 4px;
     }
 
     img {

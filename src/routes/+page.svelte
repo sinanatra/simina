@@ -2,11 +2,14 @@
     import Gravity from "@components/Gravity.svelte";
     import Detail from "@components/Detail.svelte";
     export let data;
+
+    let projects = data.posts.filter((d) => d?.meta?.title);
+    let info = data.posts.find((d) => d?.path == "/texts/about");
 </script>
 
 <article>
-    <Gravity data={data.posts} />
-    <Detail />
+    <Gravity data={projects} />
+    <Detail {info} />
 </article>
 
 <style>
@@ -29,6 +32,7 @@
     }
 
     :global(h1, h2, h3, h4) {
+        font-weight: 400;
         margin: 0;
         padding: 0;
     }
