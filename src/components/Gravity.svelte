@@ -16,7 +16,7 @@
     function createGravity() {
         Matter.use("matter-wrap");
 
-        const engine = Matter.Engine.create({ gravity: { y: .5 } });
+        const engine = Matter.Engine.create({ gravity: { y: 0.5 } });
         const world = engine.world;
         const canvas = document.getElementById("matter-canvas");
 
@@ -236,6 +236,8 @@
         return context;
     }
 </script>
+
+<svelte:window on:resize={() => createGravity()} />
 
 <article
     id="matter-container"
