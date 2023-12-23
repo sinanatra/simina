@@ -34,7 +34,6 @@
         height: 100vh;
         overflow: scroll;
         display: flex;
-        align-items: flex-end;
         flex-wrap: wrap;
         background: linear-gradient(
             180deg,
@@ -47,6 +46,15 @@
     article > div {
         min-width: 100%;
         border-top: 5px solid;
+        position: sticky;
+        bottom: 0;
+        background: linear-gradient(
+            180deg,
+            #cfcfcf 0%,
+            #cfcfcf 55%,
+            #efff82 85%,
+            #efff82 100%
+        );
     }
 
     article div > div,
