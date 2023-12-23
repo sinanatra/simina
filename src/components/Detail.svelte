@@ -1,4 +1,5 @@
 <script>
+    import { base } from "$app/paths";
     import { selectedBall } from "@stores";
     export let info;
     let larger = false;
@@ -20,7 +21,7 @@
         <div>{@html $selectedBall?.text}</div>
     {/if}
     <div>
-        <a href="/archive">Boring view?</a>
+        <a href="{base}/archive">Boring view?</a>
         <h1>Simina German</h1>
         <div>{@html info.text}</div>
     </div>
