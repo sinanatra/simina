@@ -7,13 +7,6 @@
     let width;
     let height;
 
-    // $: {
-    //     width;
-    //     try {
-    //         createGravity();
-    //     } catch (error) {}
-    // }
-
     const balls = data.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     onMount(() => {
@@ -23,7 +16,7 @@
     function createGravity() {
         Matter.use("matter-wrap");
 
-        const engine = Matter.Engine.create();
+        const engine = Matter.Engine.create({ gravity: { y: .5 } });
         const world = engine.world;
         const canvas = document.getElementById("matter-canvas");
 
@@ -38,6 +31,7 @@
                     "linear-gradient(180deg, #efff82 0%, #efff82 55%, #cfcfcf 85%, #cfcfcf 100%)",
                 wireframes: false,
             },
+            gravity: { y: 0 },
         });
 
         Matter.Render.run(render);
@@ -45,7 +39,7 @@
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        const delay = 500;
+        const delay = 2000;
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
@@ -55,7 +49,7 @@
                     50,
                     {
                         friction: 0.9,
-                        frictionStatic: 0.05,
+                        frictionStatic: 0.000005,
                         restitution: 0.9,
                         density: 0.001,
                         render: {
@@ -230,7 +224,7 @@
 
             if (underMouse.length && underMouse[0]?.data) {
                 // let fill = underMouse[0].render.fillStyle;
-                underMouse[0].render.fillStyle = "yellow";
+                underMouse[0].render.fillStyle = "red";
                 $selectedBall = underMouse[0].data;
             }
 
