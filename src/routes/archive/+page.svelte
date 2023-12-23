@@ -19,7 +19,9 @@
                     <img src={media} alt=" {project?.meta?.title}" />
                 {/each}
             </div>
-            {@html project?.text}
+            <div class="text">
+                {@html project?.text}
+            </div>
         </div>
     {/each}
 </article>
@@ -47,6 +49,10 @@
         gap: 8px;
     }
 
+    .text {
+        max-width: 800px;
+    }
+    
     img {
         width: 100%;
         max-width: 260px;
