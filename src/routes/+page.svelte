@@ -31,7 +31,7 @@
         font-family: sans-serif;
     }
 
-    :global(h1, h2, h3, h4) {
+    :global(h1, h2, h3, h4, p) {
         font-weight: 400;
         margin: 0;
         padding: 0;

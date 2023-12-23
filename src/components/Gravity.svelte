@@ -115,7 +115,7 @@
 
             const newShape = Matter.Bodies.rectangle(
                 getRandomInt(-width, width),
-                getRandomInt(-height, height / 1.2),
+                getRandomInt(-height, height),
                 250,
                 10,
                 {

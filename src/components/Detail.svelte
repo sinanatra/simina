@@ -31,7 +31,7 @@
     article {
         border-left: 5px solid;
         width: 30vw;
-        min-width: 160px;
+        min-width: 240px;
         height: 100vh;
         overflow: scroll;
         display: flex;
