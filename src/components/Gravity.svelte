@@ -7,14 +7,14 @@
     let width;
     let height;
 
-    $: {
-        width;
-        try {
-            createGravity();
-        } catch (error) {}
-    }
+    // $: {
+    //     width;
+    //     try {
+    //         createGravity();
+    //     } catch (error) {}
+    // }
 
-    const balls = data;
+    const balls = data.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     onMount(() => {
         createGravity();
@@ -23,7 +23,6 @@
     function createGravity() {
         Matter.use("matter-wrap");
 
-        // create engine
         const engine = Matter.Engine.create();
         const world = engine.world;
         const canvas = document.getElementById("matter-canvas");
@@ -33,8 +32,8 @@
             engine: engine,
             canvas: canvas,
             options: {
-                width,
-                height,
+                width: width,
+                height: height,
                 background:
                     "linear-gradient(180deg, #efff82 0%, #efff82 55%, #cfcfcf 85%, #cfcfcf 100%)",
                 wireframes: false,
@@ -46,43 +45,57 @@
         const runner = Matter.Runner.create();
         Matter.Runner.run(runner, engine);
 
-        const delay = 1000;
+        const delay = 500;
         const ballData = [];
         for (let i = 0; i < balls.length; i++) {
             setTimeout(() => {
                 const ball = Matter.Bodies.circle(
-                    Matter.Common.random(-width, width),
+                    getRandomInt(-width, width),
                     -height,
                     50,
                     {
                         friction: 0.9,
-                        restitution: 0.5,
-                        density: 0.6,
+                        frictionStatic: 0.05,
+                        restitution: 0.9,
+                        density: 0.001,
                         render: {
                             fillStyle: "blue",
                         },
                         data: balls[i],
                     },
                 );
+
                 ballData.push(ball);
                 Matter.World.add(world, ball);
             }, i * delay);
         }
 
-        const walls = [
-            Matter.Bodies.rectangle(-width, 0, 20, height * 2, {
-                isStatic: true,
-                render: { fillStyle: "none" },
-            }),
+        Matter.Events.on(engine, "beforeUpdate", function () {
+            for (let i = 0; i < ballData.length; i++) {
+                const ball = ballData[i];
+                if (ball.position.y > height) {
+                    Matter.Body.setPosition(ball, {
+                        x: getRandomInt(-width, width),
+                        y: -height,
+                    });
+                    Matter.Body.setVelocity(ball, { x: 0, y: 0 }); // Optional: Set velocity to control initial movement
+                }
+            }
+        });
 
-            Matter.Bodies.rectangle(width, 0, 20, height * 2, {
-                isStatic: true,
-                render: { fillStyle: "none" },
-            }),
-            Matter.Bodies.rectangle(0, height, width * 2.1, 5, {
-                isStatic: true,
-                render: { fillStyle: "none" },
-            }),
+        const walls = [
+            // Matter.Bodies.rectangle(-width - 250, 100, 20, height * 2, {
+            //     isStatic: true,
+            //     render: { fillStyle: "red" },
+            // }),
+            // Matter.Bodies.rectangle(width + 250, 100, 20, height * 2, {
+            //     isStatic: true,
+            //     render: { fillStyle: "red" },
+            // }),
+            // Matter.Bodies.rectangle(0, height + 250, width * 2.4, 20, {
+            //     isStatic: true,
+            //     render: { fillStyle: "red" },
+            // }),
         ];
 
         function getRandomInt(min, max) {
@@ -91,7 +104,7 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        const minDistance = 252;
+        const minDistance = 248;
 
         const randomShapes = generateShapes([], width / 35);
 
@@ -101,8 +114,8 @@
             }
 
             const newShape = Matter.Bodies.rectangle(
-                getRandomInt(-width, width - 100),
-                getRandomInt(-height, height - 80),
+                getRandomInt(-width, width),
+                getRandomInt(-height, height / 1.2),
                 250,
                 10,
                 {
@@ -116,7 +129,7 @@
                 Matter.Events.on(engine, "beforeUpdate", function (event) {
                     Matter.Body.rotate(
                         newShape,
-                        rotationDirection * (Math.PI / 180),
+                        rotationDirection * (Math.PI / 90),
                     );
                 });
 
@@ -207,7 +220,7 @@
             },
         };
 
-        Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
+        // Matter.Render.setPixelRatio(render, window.devicePixelRatio); // added this
 
         Matter.Events.on(runner, "tick", (event) => {
             const underMouse = Matter.Query.point(
@@ -225,7 +238,7 @@
                 $selectedBall = underMouse[0].data;
             }
         });
-        
+
         return context;
     }
 </script>
