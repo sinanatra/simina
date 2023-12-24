@@ -7,7 +7,7 @@
     let width;
     let height;
 
-    const balls = data //.sort(() => (Math.random() > 0.5 ? 1 : -1));
+    const balls = data; //.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     onMount(() => {
         createGravity();
@@ -55,7 +55,7 @@
                         render: {
                             fillStyle: "blue",
                         },
-                        
+
                         data: balls[i],
                     },
                 );
@@ -253,6 +253,11 @@
         width: 100vw;
         height: 100vh;
         margin: 0;
-        overflow: hidden; /* Prevent scrollbars */
+        overflow: hidden;
+        transition: all 1s;
+    }
+
+    :global(.container:has(> .expand) > article:first-child) {
+        width: 40vw !important;
     }
 </style>

@@ -47,7 +47,7 @@
     }
 
     .expand {
-        width: 80vw;
+        width: 60vw;
     }
 
     h1 {

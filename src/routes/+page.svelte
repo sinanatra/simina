@@ -7,7 +7,7 @@
     let info = data.posts.find((d) => d?.path == "/texts/about");
 </script>
 
-<article>
+<article class="container">
     <Gravity data={projects} />
     <Detail {info} />
 </article>
