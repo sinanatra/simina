@@ -1,10 +1,7 @@
 <script>
-    import { each } from "svelte/internal";
-
     export let data;
 
     let projects = data.posts.filter((d) => d?.meta?.title);
-    let info = data.posts.find((d) => d?.path == "/texts/about");
 </script>
 
 <article>
@@ -52,11 +49,10 @@
     .text {
         max-width: 800px;
     }
-    
+
     img {
         width: 100%;
         max-width: 260px;
-
         padding-bottom: 4px;
     }
 </style>
