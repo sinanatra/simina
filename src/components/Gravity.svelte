@@ -68,7 +68,7 @@
         Matter.Events.on(engine, "beforeUpdate", function () {
             for (let i = 0; i < ballData.length; i++) {
                 const ball = ballData[i];
-                if (ball.position.y > height) {
+                if (ball.position.y > height + 255) {
                     Matter.Body.setPosition(ball, {
                         x: ball.position.x,
                         y: -height,
@@ -79,17 +79,17 @@
         });
 
         const walls = [
-            // Matter.Bodies.rectangle(-width - 250, 100, 20, height * 2, {
+            Matter.Bodies.rectangle(-width - 250, 100, 20, height * 2, {
+                isStatic: true,
+                render: { fillStyle: "none" },
+            }),
+            Matter.Bodies.rectangle(width + 250, 100, 20, height * 2, {
+                isStatic: true,
+                render: { fillStyle: "none" },
+            }),
+            // Matter.Bodies.rectangle(0, height + 250, width * 2.4, 10, {
             //     isStatic: true,
-            //     render: { fillStyle: "red" },
-            // }),
-            // Matter.Bodies.rectangle(width + 250, 100, 20, height * 2, {
-            //     isStatic: true,
-            //     render: { fillStyle: "red" },
-            // }),
-            // Matter.Bodies.rectangle(0, height + 250, width * 2.4, 20, {
-            //     isStatic: true,
-            //     render: { fillStyle: "red" },
+            //     render: { fillStyle: "none" },
             // }),
         ];
 

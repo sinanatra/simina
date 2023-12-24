@@ -26,7 +26,7 @@
             </div>
         {/if}
         {#if $selectedBall?.meta?.media.length > 0}
-            <div>
+            <div class="images">
                 {#each $selectedBall?.meta?.media as media}
                     <img src={media} alt=" {$selectedBall?.meta?.title}" />
                 {/each}
@@ -80,6 +80,16 @@
         background: #cfcfcf;
     }
 
+    .images {
+        display: flex;
+        overflow: scroll;
+    }
+
+    img {
+        width: 100%;
+        padding-right: 8px;
+    }
+
     article > div:nth-child(2n) {
         background: #efff82;
     }
@@ -93,10 +103,6 @@
         border-bottom: 5px solid;
     }
 
-    img {
-        width: 100%;
-        padding-bottom: 4px;
-    }
 
     a {
         display: block;
