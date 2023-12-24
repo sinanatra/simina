@@ -21,9 +21,7 @@
         <div>{@html $selectedBall?.text}</div>
     {/if}
     <div>
-        <a href="{base == '' ? base + '/archive' : base + '/archive.html'}/"
-            >Boring view?</a
-        >
+        <a href="{base}/archive">Boring view?</a>
         <h1>Simina German</h1>
         <div>{@html info.text}</div>
     </div>
