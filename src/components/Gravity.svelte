@@ -55,6 +55,7 @@
                         render: {
                             fillStyle: "blue",
                         },
+                        
                         data: balls[i],
                     },
                 );
@@ -69,7 +70,7 @@
                 const ball = ballData[i];
                 if (ball.position.y > height) {
                     Matter.Body.setPosition(ball, {
-                        x: getRandomInt(-width, width),
+                        x: ball.position.x,
                         y: -height,
                     });
                     Matter.Body.setVelocity(ball, { x: 0, y: 0 }); // Optional: Set velocity to control initial movement
