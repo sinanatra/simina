@@ -1,7 +1,7 @@
 ---
 title: Title 6
 media: ["https://erzaehlen-ist-liebe.com/media/pages/kopfbahnhofe/4535e9aee0-1613568677/img_1986.jpeg"]
-video: ""
+video: []
 ---
 
 „Viel Lärm um Nichts“ ist scheinbar eine Komödie, bei näherem Betrachten entpuppt sich dieses Stück aber als abgründiges Spiel um Sprache und Kommunikation, Rollenverhalten und Voyeurismus, in dem höchst tragische Dinge passieren: Eine junge Frau, Hero, wird verheiratet, verleumdet und dann abermals verheiratet. Die Figuren sind getrieben von Eitelkeit und spielen permanent. Alles in diesem Stück ist Theater, Inszenierung. Es wird intrigiert und verkuppelt. Das Ganze hat etwas Dekadentes, Gemeinheit aus Langeweile.

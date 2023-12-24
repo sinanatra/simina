@@ -13,11 +13,25 @@
                 {$selectedBall?.meta?.title}
             </h1>
         </div>
-        <div>
-            {#each $selectedBall?.meta?.media as media}
-                <img src={media} alt=" {$selectedBall?.meta?.title}" />
-            {/each}
-        </div>
+        {#if $selectedBall?.meta?.video.length > 0}
+            <div class="video">
+                {#each $selectedBall?.meta?.video as video}
+                    <iframe
+                        title="vimeo-player"
+                        src={video}
+                        frameborder="0"
+                        allowfullscreen
+                    ></iframe>
+                {/each}
+            </div>
+        {/if}
+        {#if $selectedBall?.meta?.media.length > 0}
+            <div>
+                {#each $selectedBall?.meta?.media as media}
+                    <img src={media} alt=" {$selectedBall?.meta?.title}" />
+                {/each}
+            </div>
+        {/if}
         <div>{@html $selectedBall?.text}</div>
     {/if}
     <div>
@@ -89,5 +103,23 @@
         color: black;
         text-decoration: underline dashed;
         margin-bottom: 8px;
+    }
+
+    .video {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+    }
+
+    .video iframe,
+    .video object,
+    .video embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 </style>

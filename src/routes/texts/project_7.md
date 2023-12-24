@@ -1,7 +1,7 @@
 ---
 title: Title 7
 media: ["https://erzaehlen-ist-liebe.com/media/pages/gut-nacht/0fb559d5a4-1614550696/gut-nacht.jpeg"]
-video: ""
+video: []
 ---
 
 „Viel Lärm um Nichts“ ist scheinbar eine Komödie, bei näherem Betrachten entpuppt sich dieses Stück aber als abgründiges Spiel um Sprache und Kommunikation, Rollenverhalten und Voyeurismus, in dem höchst tragische Dinge passieren: Eine junge Frau, Hero, wird verheiratet, verleumdet und dann abermals verheiratet. Die Figuren sind getrieben von Eitelkeit und spielen permanent. Alles in diesem Stück ist Theater, Inszenierung. Es wird intrigiert und verkuppelt. Das Ganze hat etwas Dekadentes, Gemeinheit aus Langeweile.

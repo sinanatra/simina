@@ -1,7 +1,7 @@
 ---
 title: Title 5
 media: ["https://erzaehlen-ist-liebe.com/media/pages/mahlzeit/63c9ede837-1614448608/johanna-2.jpg"]
-video: ""
+video: []
 ---
 
 „Viel Lärm um Nichts“ ist scheinbar eine Komödie, bei näherem Betrachten entpuppt sich dieses Stück aber als abgründiges Spiel um Sprache und Kommunikation, Rollenverhalten und Voyeurismus, in dem höchst tragische Dinge passieren: Eine junge Frau, Hero, wird verheiratet, verleumdet und dann abermals verheiratet. Die Figuren sind getrieben von Eitelkeit und spielen permanent. Alles in diesem Stück ist Theater, Inszenierung. Es wird intrigiert und verkuppelt. Das Ganze hat etwas Dekadentes, Gemeinheit aus Langeweile.

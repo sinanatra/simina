@@ -7,7 +7,7 @@
     let width;
     let height;
 
-    const balls = data.sort(() => (Math.random() > 0.5 ? 1 : -1));
+    const balls = data //.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
     onMount(() => {
         createGravity();

@@ -1,7 +1,7 @@
 ---
 title: Title 1
-media: ["https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg","https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg","https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg","https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg"]
-video: ""
+media: ["https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg","https://erzaehlen-ist-liebe.com/media/pages/vorort/d32ab9350a-1614550841/haus-mit-garten.jpeg"]
+video: ["https://player.vimeo.com/video/499203317"]
 ---
 
 „Viel Lärm um Nichts“ ist scheinbar eine Komödie, bei näherem Betrachten entpuppt sich dieses Stück aber als abgründiges Spiel um Sprache und Kommunikation, Rollenverhalten und Voyeurismus, in dem höchst tragische Dinge passieren: Eine junge Frau, Hero, wird verheiratet, verleumdet und dann abermals verheiratet. Die Figuren sind getrieben von Eitelkeit und spielen permanent. Alles in diesem Stück ist Theater, Inszenierung. Es wird intrigiert und verkuppelt. Das Ganze hat etwas Dekadentes, Gemeinheit aus Langeweile.
