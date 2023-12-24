@@ -16,11 +16,11 @@ const config = {
 		}),
 		paths: {
 			base: dev ? '' : process.env.BASE_PATH,
-			relative: false,
+			// relative: false,
 		},
 		prerender: {
 			crawl: true,
-			entries: ["/", "/archive",],
+			// entries: ["/", "/archive",],
 		},
 		alias: {
 			'@components': 'src/components',
