@@ -100,7 +100,7 @@
 
         const minDistance = 248;
 
-        const randomShapes = generateShapes([], width / 35);
+        const randomShapes = generateShapes([], width / 45);
 
         function generateShapes(shapesArray, remaining) {
             if (remaining <= 0) {
