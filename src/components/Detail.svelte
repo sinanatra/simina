@@ -18,7 +18,7 @@
                 {#each $selectedBall?.meta?.video as video}
                     <iframe
                         title="vimeo-player"
-                        src={video}
+                        src="https://player.vimeo.com/video/{video}"
                         frameborder="0"
                         allowfullscreen
                     ></iframe>
