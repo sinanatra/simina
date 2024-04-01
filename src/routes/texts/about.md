@@ -1,1 +1,0 @@
-Simina's biography and blablabla

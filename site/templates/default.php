@@ -1,0 +1,1 @@
+<strong><?= $site->title() ?></strong><br><br>
